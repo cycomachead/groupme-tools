@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+
 import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
@@ -60,18 +62,19 @@ oldestId" to continue fetching the past).]
 
     group = sys.argv[1]
     accessToken = sys.argv[2]
-
+    
     complete = False
     pageCount = 0
 
-    endpoint = 'https://v2.groupme.com/groups/' + group + '/messages'
+    endpoint = 'https://api.groupme.com/v3/groups/' + group + '/messages'
     headers = {
         'Accept': 'application/json, text/javascript',
         'Accept-Charset': 'ISO-8859-1,utf-8',
         'Accept-Language': 'en-US',
         'Content-Type': 'application/json',
-        'Origin': 'https://web.groupme.com',
-        'Referer': 'https://web.groupme.com/groups/' + group,
+        'Host': 'api.groupme.com',
+        'Origin': 'https://app.groupme.com',
+        'Referer': 'https://app.groupme.com/chats/',
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.45 Safari/537.22',
         'X-Access-Token': accessToken
     }
